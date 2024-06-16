@@ -12,7 +12,7 @@ class TaskController extends Controller
 
     function getTaskList()
     {
-        $tasks = Task::all();
+        $tasks = Task::orderBy('created_at', 'desc')->get();
         
         return response()->json(['status' => 200, 'tasks' => $tasks]);
     }
